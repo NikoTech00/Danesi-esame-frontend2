@@ -5,7 +5,7 @@ const MovieCard = ({ movie }: TypeMovieCardProps) => {
     const navigate = useNavigate()
 
     const navigaDettaglio = () => {
-        navigate('/movies/${moviee.id}')
+        navigate(`/movies/${movie.id}`)
     }
 
 
@@ -13,7 +13,7 @@ const MovieCard = ({ movie }: TypeMovieCardProps) => {
         <article className="card">
             <div className="card__poster">
                 {movie.poster_path ? (
-                    <img src={""} alt={movie.title} />
+                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                 ) : (
                     "Poster"
                 )}
@@ -25,7 +25,7 @@ const MovieCard = ({ movie }: TypeMovieCardProps) => {
                 <p className="card__meta">
                     Uscita: {movie.release_date} · Voto: {movie.vote_average}
                 </p>
-                <p className="card_overview">
+                <p className="card__overview">
                     {movie.overview}
                 </p>
                 <button className="card__cta" onClick={navigaDettaglio}>Dettaglio</button>
